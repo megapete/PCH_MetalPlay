@@ -10,6 +10,9 @@
 		F5E83712257AB4C7003F32DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E83711257AB4C7003F32DF /* AppDelegate.swift */; };
 		F5E83714257AB4C8003F32DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5E83713257AB4C8003F32DF /* Assets.xcassets */; };
 		F5E83717257AB4C8003F32DF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5E83715257AB4C8003F32DF /* MainMenu.xib */; };
+		F5E83721257AB4F4003F32DF /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E83720257AB4F4003F32DF /* AppController.swift */; };
+		F5E83724257AB5EB003F32DF /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E83723257AB5EB003F32DF /* Renderer.swift */; };
+		F5E8372E257ABB43003F32DF /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = F5E8372D257ABB43003F32DF /* Shaders.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,11 @@
 		F5E83716257AB4C8003F32DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		F5E83718257AB4C8003F32DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5E83719257AB4C8003F32DF /* PCH_MetalPlay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PCH_MetalPlay.entitlements; sourceTree = "<group>"; };
+		F5E83720257AB4F4003F32DF /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
+		F5E83723257AB5EB003F32DF /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		F5E83726257AB8B5003F32DF /* PCH_MetalPlay-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PCH_MetalPlay-Bridging-Header.h"; sourceTree = "<group>"; };
+		F5E8372B257AB8D2003F32DF /* ShaderDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderDefinitions.h; sourceTree = "<group>"; };
+		F5E8372D257ABB43003F32DF /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,10 +60,15 @@
 			isa = PBXGroup;
 			children = (
 				F5E83711257AB4C7003F32DF /* AppDelegate.swift */,
+				F5E83720257AB4F4003F32DF /* AppController.swift */,
+				F5E83723257AB5EB003F32DF /* Renderer.swift */,
+				F5E8372B257AB8D2003F32DF /* ShaderDefinitions.h */,
+				F5E8372D257ABB43003F32DF /* Shaders.metal */,
 				F5E83713257AB4C8003F32DF /* Assets.xcassets */,
 				F5E83715257AB4C8003F32DF /* MainMenu.xib */,
 				F5E83718257AB4C8003F32DF /* Info.plist */,
 				F5E83719257AB4C8003F32DF /* PCH_MetalPlay.entitlements */,
+				F5E83726257AB8B5003F32DF /* PCH_MetalPlay-Bridging-Header.h */,
 			);
 			path = PCH_MetalPlay;
 			sourceTree = "<group>";
@@ -91,6 +104,7 @@
 				TargetAttributes = {
 					F5E8370D257AB4C7003F32DF = {
 						CreatedOnToolsVersion = 12.1;
+						LastSwiftMigration = 1210;
 					};
 				};
 			};
@@ -129,7 +143,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5E8372E257ABB43003F32DF /* Shaders.metal in Sources */,
 				F5E83712257AB4C7003F32DF /* AppDelegate.swift in Sources */,
+				F5E83724257AB5EB003F32DF /* Renderer.swift in Sources */,
+				F5E83721257AB4F4003F32DF /* AppController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +284,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = PCH_MetalPlay/PCH_MetalPlay.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -279,6 +297,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.huberistech.PCH-MetalPlay";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PCH_MetalPlay/PCH_MetalPlay-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -288,6 +308,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = PCH_MetalPlay/PCH_MetalPlay.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -300,6 +321,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.huberistech.PCH-MetalPlay";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PCH_MetalPlay/PCH_MetalPlay-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
