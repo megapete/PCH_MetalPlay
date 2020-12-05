@@ -14,6 +14,7 @@ class AppController: NSObject {
     @IBOutlet weak var mtkView: MTKView!
     var renderer:Renderer!
     
+    // My own (converted from Apple's Objective-C) texture loading function
     func loadTextureUsingMetalKit(url:URL, device:MTLDevice) -> MTLTexture?
     {
         let loader = MTKTextureLoader(device: device)
@@ -31,7 +32,8 @@ class AppController: NSObject {
         }
     }
     
-    override  func awakeFromNib() {
+    
+    override func awakeFromNib() {
         
         guard let defaultDevice = MTLCreateSystemDefaultDevice() else
         {
@@ -40,6 +42,16 @@ class AppController: NSObject {
         }
         
         print("My GPU is: \(defaultDevice)")
+        
+        // For fun, this is how to find ALL the GPUs available. On Macs, the MTLCreateSystemDefaultDevice() call above returns the "discrete" GPU (if any) which is usually the one we'll want if we're using Metal.
+        let allDevices = MTLCopyAllDevices()
+        var index = 1
+        for nextDevice in allDevices
+        {
+            print("GPU #\(index): \(nextDevice)")
+            index += 1
+        }
+        
         self.mtkView.device = defaultDevice
         
         self.mtkView.clearColor = MTLClearColorMake(0, 0.5, 1, 1)
