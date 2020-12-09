@@ -13,6 +13,7 @@ class AppController: NSObject {
 
     @IBOutlet weak var mtkView: MTKView!
     var renderer:Renderer!
+    var lineRenderer:LineRenderer!
     
     // My own (converted from Apple's Objective-C) texture loading function
     func loadTextureUsingMetalKit(url:URL, device:MTLDevice) -> MTLTexture?
@@ -54,6 +55,24 @@ class AppController: NSObject {
         
         self.mtkView.device = defaultDevice
         
+        
+        
+        /*
+        guard let tempRenderer = Renderer(mtkView: self.mtkView) else
+        {
+            print("Renderer failed to intialize!")
+            return
+        }
+        
+        self.renderer = tempRenderer
+        
+        self.mtkView.delegate = renderer
+ 
+        */
+    }
+    
+    @IBAction func handleTest1(_ sender: Any) {
+        
         self.mtkView.clearColor = MTLClearColorMake(0, 0.5, 1, 1)
         
         guard let tempRenderer = Renderer(mtkView: self.mtkView) else
@@ -66,4 +85,37 @@ class AppController: NSObject {
         
         self.mtkView.delegate = renderer
     }
+    
+    @IBAction func handleTest2(_ sender: Any) {
+        
+        self.mtkView.clearColor = MTLClearColorMake(0, 0, 0, 1)
+        
+        guard let tempRenderer = Renderer(mtkView: self.mtkView) else
+        {
+            print("Renderer failed to intialize!")
+            return
+        }
+        
+        self.renderer = tempRenderer
+        
+        self.mtkView.delegate = renderer
+    }
+    
+    @IBAction func handleTest3(_ sender: Any) {
+        
+        self.mtkView.clearColor = MTLClearColorMake(0, 0, 0, 1)
+        
+        let vertices = [Vertex(color: [1,1,1,1], pos: [-0.5, -0.9]), Vertex(color: [1,1,1,1], pos: [0.0, 0.9])]
+        
+        guard let tempRenderer = LineRenderer(mtkView: self.mtkView, vertices: vertices) else
+        {
+            print("LineRenderer failed to intialize!")
+            return
+        }
+        
+        self.lineRenderer = tempRenderer
+        
+        self.mtkView.delegate = self.lineRenderer
+    }
+    
 }

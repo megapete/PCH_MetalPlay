@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3A8FC552580509F00292953 /* LineRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A8FC542580509F00292953 /* LineRenderer.swift */; };
 		F5E83712257AB4C7003F32DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E83711257AB4C7003F32DF /* AppDelegate.swift */; };
 		F5E83714257AB4C8003F32DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5E83713257AB4C8003F32DF /* Assets.xcassets */; };
 		F5E83717257AB4C8003F32DF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5E83715257AB4C8003F32DF /* MainMenu.xib */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D3A8FC542580509F00292953 /* LineRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineRenderer.swift; sourceTree = "<group>"; };
 		F5E8370E257AB4C7003F32DF /* PCH_MetalPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PCH_MetalPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5E83711257AB4C7003F32DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5E83713257AB4C8003F32DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				F5E83711257AB4C7003F32DF /* AppDelegate.swift */,
 				F5E83720257AB4F4003F32DF /* AppController.swift */,
 				F5E83723257AB5EB003F32DF /* Renderer.swift */,
+				D3A8FC542580509F00292953 /* LineRenderer.swift */,
 				F5E8372B257AB8D2003F32DF /* ShaderDefinitions.h */,
 				F5E8372D257ABB43003F32DF /* Shaders.metal */,
 				F5E83713257AB4C8003F32DF /* Assets.xcassets */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3A8FC552580509F00292953 /* LineRenderer.swift in Sources */,
 				F5E8372E257ABB43003F32DF /* Shaders.metal in Sources */,
 				F5E83712257AB4C7003F32DF /* AppDelegate.swift in Sources */,
 				F5E83724257AB5EB003F32DF /* Renderer.swift in Sources */,
