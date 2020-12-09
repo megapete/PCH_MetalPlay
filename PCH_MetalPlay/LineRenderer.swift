@@ -11,12 +11,12 @@ import MetalKit
 
 class LineRenderer: NSObject, MTKViewDelegate {
     
-    let device:MTLDevice
+    var device:MTLDevice
     let commandQueue:MTLCommandQueue
     let pipelineState:MTLRenderPipelineState
-    let vertexBuffer:MTLBuffer
+    var vertexBuffer:MTLBuffer?
     
-    init?(mtkView:MTKView, vertices:[Vertex])
+    init?(mtkView:MTKView)
     {
         self.device = mtkView.device!
         self.commandQueue = device.makeCommandQueue()!
@@ -28,11 +28,6 @@ class LineRenderer: NSObject, MTKViewDelegate {
             print("Unable to compile render pipeline state! The error is: \(error)")
             return nil
         }
-        
-        //let vertices = [Vertex(color: [1,0,0,1], pos: [-1,-1]), Vertex(color: [0,1,0,1], pos: [0,1]), Vertex(color: [0,0,1,1], pos: [1,-1])]
-        
-        self.vertexBuffer = device.makeBuffer(bytes: vertices, length: vertices.count * MemoryLayout<Vertex>.stride, options: [])!
-        
     }
     
     class func buildRenderPipelineWith(device:MTLDevice, metalKitView:MTKView) throws -> MTLRenderPipelineState
@@ -71,11 +66,19 @@ class LineRenderer: NSObject, MTKViewDelegate {
             return
         }
         
+        guard let vertexBuffer = self.vertexBuffer else
+        {
+            return
+        }
+        
         renderEncoder.setRenderPipelineState(self.pipelineState)
         
-        renderEncoder.setVertexBuffer(self.vertexBuffer, offset: 0, index: 0)
+        renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
         
-        renderEncoder.drawPrimitives(type: .line, vertexStart: 0, vertexCount: 4)
+        let vertexCount = vertexBuffer.length / MemoryLayout<Vertex>.stride
+        let instanceCount = vertexCount / 2
+        
+        renderEncoder.drawPrimitives(type: .line, vertexStart: 0, vertexCount: vertexCount, instanceCount: instanceCount, baseInstance: 0)
         
         renderEncoder.endEncoding()
         

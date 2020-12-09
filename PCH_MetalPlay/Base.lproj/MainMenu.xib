@@ -374,6 +374,18 @@
                                     <action selector="handleTest3:" target="5bz-WI-Ozw" id="EdR-Sc-2CL"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Test #4" id="zBV-sb-rwL">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="handleTest4:" target="5bz-WI-Ozw" id="QGX-lZ-QsF"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Test #5" id="xPs-f4-IsM">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="handleTest5:" target="5bz-WI-Ozw" id="c0c-hC-dgN"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
@@ -386,10 +398,10 @@
         <window title="PCH_MetalPlay" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="480" height="360"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1025"/>
+            <rect key="contentRect" x="335" y="390" width="480" height="480"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="EiT-Mj-1SZ" customClass="MTKView">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                 <autoresizingMask key="autoresizingMask"/>
             </view>
             <point key="canvasLocation" x="134" y="443"/>
